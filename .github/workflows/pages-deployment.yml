@@ -38,15 +38,15 @@ jobs:
             ${{ runner.os }}-lfs-
       - name: Git LFS Pull
         run: git lfs pull
-      - name: Lint
-        run: pnpm lint
-      - name: Typecheck
-        run: pnpm typecheck
       - name: Cypress run
         uses: cypress-io/github-action@v6
         with:
           build: pnpm build
           start: pnpm preview
+      - name: Lint
+        run: pnpm lint
+      - name: Typecheck
+        run: pnpm typecheck
       - name: Lighthouse
         run: pnpm lhci autorun
       - name: Publish
